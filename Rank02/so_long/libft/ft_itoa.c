@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: torandri <torandri@student.42antanana      +#+  +:+       +#+        */
+/*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 15:16:59 by torandri          #+#    #+#             */
-/*   Updated: 2024/03/12 11:16:51 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/01 17:33:12 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

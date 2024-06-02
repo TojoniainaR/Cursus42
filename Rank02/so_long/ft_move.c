@@ -6,7 +6,7 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:49:30 by torandri          #+#    #+#             */
-/*   Updated: 2024/05/31 10:36:28 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/02 17:15:12 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 
 void	ft_move_player(t_data *data, int new_x, int new_y)
 {
+	int			j;
 	t_data_img	*data_img;
 
+	data->collect = ft_collect_number(data);
+	ft_printf("collect = %d\n", data->collect);
+	if (data->map[new_y][new_x] == 'E' && data->collect == 0)
+	{
+		data->map[data->pos_y][data->pos_x] = '0';
+		data->map[new_y][new_x] = 'P';
+		// ft_free_when_quit(data);
+	}
 	if (data->map[new_y][new_x] != '1' && data->map[new_y][new_x] != 'E')
 	{
 		data->map[data->pos_y][data->pos_x] = '0';
@@ -25,8 +34,14 @@ void	ft_move_player(t_data *data, int new_x, int new_y)
 		ft_printf("move %d\n", data->move++);
 		ft_put_image(data);
 	}
-	data->collect = ft_collect_number(data);
-	// ft_printf("collect = %d\n", data->collect);
+	j = 0;
+	while (j < data->y)
+	{
+		if (data->map[j])
+			ft_printf("%s", data->map[j]);
+		j++;
+	}
+	ft_printf("\n");
 }
 
 void	move_up_player(t_data *data)

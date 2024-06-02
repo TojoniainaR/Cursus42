@@ -6,7 +6,7 @@
 #    By: torandri <torandri@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 08:30:54 by torandri          #+#    #+#              #
-#    Updated: 2024/05/31 12:06:08 by torandri         ###   ########.fr        #
+#    Updated: 2024/06/02 16:55:32 by torandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,9 @@ HEADER = ./minilibx-linux/mlx.h
 
 LIBC = ar -rcs
 
-SRCS = main.c ft_check_map_error.c ft_scale_map_to_window.c ft_init_map.c ft_check_error.c ft_events.c ft_move.c so_long_utils.c ft_put_image.c ft_game.c
+SRCS = main.c ft_check_map_error.c ft_scale_map_to_window.c ft_init_map.c ft_check_error.c ft_events.c ft_move.c so_long_utils.c ft_put_image.c ft_collect_anim.c
 
-OBJS = main.o ft_check_map_error.o ft_scale_map_to_window.o ft_init_map.o ft_check_error.o ft_events.o ft_move.o so_long_utils.o ft_put_image.o ft_game.o ############### $(SRC:.c=.o)
+OBJS = main.o ft_check_map_error.o ft_scale_map_to_window.o ft_init_map.o ft_check_error.o ft_events.o ft_move.o so_long_utils.o ft_put_image.o ft_collect_anim.o ############### $(SRC:.c=.o)
 
 all : $(NAME)
 

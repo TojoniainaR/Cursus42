@@ -6,7 +6,7 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:52:17 by torandri          #+#    #+#             */
-/*   Updated: 2024/05/31 11:06:56 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/02 16:58:25 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,12 @@ typedef struct s_data
 	int			pos_y;
 	int			move;
 	int			collect;
+	int			current_frame;
 	char		*file;
 	char		**map;
+	char		*string;
+	void		*objects[4];
+	void		*collect_anim[3];
 	t_vars		vars;
 	t_data_img	data_img;
 }				t_data;
@@ -91,14 +95,6 @@ typedef struct s_tmp_map
 	char	**map;
 }				t_tmp_map;
 
-typedef struct s_put_img
-{
-	void		*player_img;
-	void		*collect_img;
-	void		*wall_img;
-	void		*exit_img;
-}				t_put_img;
-
 int		ft_check_error(int argc, char *argv[]);
 int		take_value_x(int x, int fd);
 int		take_value_y(int y, int fd);
@@ -106,8 +102,11 @@ int		ft_key_events(int keycode, t_data *data);
 int		ft_mouse_events(t_data *data);
 int		ft_check_map_error(int x, int y, char *file);
 int		ft_collect_number(t_data *data);
+int		ft_collect_anim(void *col_anim);
+int		ft_loop_map(int x, int y, char **map);
 char	**ft_tmp_map(int *x, int *y, char *file);
 size_t	ft_strlen_mod(const char *str);
+void	ft_free_when_quit(t_data *data);
 void	ft_free_map(char **map, int line);
 void	move_up_player(t_data *data);
 void	move_down_player(t_data *data);

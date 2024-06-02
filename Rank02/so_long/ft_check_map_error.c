@@ -6,7 +6,7 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 14:56:55 by torandri          #+#    #+#             */
-/*   Updated: 2024/05/30 21:53:14 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/02 15:55:40 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,16 @@ int	inside_map(int x, int y, char **map)
 
 int	ft_check_map_error(int x, int y, char *file)
 {
-	t_data		data;
+	int			i;
+	int			j;
 	char		**map;
+	t_data		data;
 
 	map = ft_tmp_map(&x, &y, file);
 	if (!map)
 		return (ft_free_map(map, y), 1);
+	if (ft_loop_map(x, y, map) == 1)
+		return (1);
 	if (surrounded_vertical(y, map) == 1)
 		return (ft_free_map(map, y), 1);
 	if (surrounded_horizontal(x, y, map) == 1)
