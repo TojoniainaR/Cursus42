@@ -6,7 +6,7 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:52:17 by torandri          #+#    #+#             */
-/*   Updated: 2024/06/02 16:58:25 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:43:23 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_data
 	char		*file;
 	char		**map;
 	char		*string;
+	char		*n_move;
 	void		*objects[4];
 	void		*collect_anim[3];
 	t_vars		vars;

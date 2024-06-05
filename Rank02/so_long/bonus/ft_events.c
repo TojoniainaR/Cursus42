@@ -6,11 +6,17 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:26:31 by torandri          #+#    #+#             */
-/*   Updated: 2024/06/02 17:02:05 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/05 16:50:46 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_free_char(t_data *data)
+{
+	free(data->string);
+	free(data->n_move);
+}
 
 void	ft_free_when_quit(t_data *data)
 {
@@ -28,10 +34,11 @@ int	ft_key_events(int keycode, t_data *data)
 
 	new_x = data->pos_x;
 	new_y = data->pos_y;
-	data->string = ft_strjoin ("move : ", ft_itoa(data->move));
+	data->n_move = ft_itoa(data->move);
+	data->string = ft_strjoin ("move : ", data->n_move);
 	if (keycode == XK_ESC)
 	{
-		free(data->string);
+		ft_free_char(data);
 		ft_free_when_quit(data);
 		exit (0);
 		return (0);
@@ -51,7 +58,6 @@ int	ft_key_events(int keycode, t_data *data)
 
 int	ft_mouse_events(t_data *data)
 {
-	free(data->string);
 	ft_free_when_quit(data);
 	exit (0);
 	return (0);
