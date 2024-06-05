@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_game.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 15:48:42 by torandri          #+#    #+#             */
-/*   Updated: 2024/05/31 11:01:14 by torandri         ###   ########.fr       */
+/*   Created: 2024/03/02 12:13:13 by torandri          #+#    #+#             */
+/*   Updated: 2024/05/30 17:31:11 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_game(t_data *data)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	t_data_img	*data_img;
-	int     	i;
-	char    	*str;
-	void		*image;
+	size_t	i;
+	size_t	j;
+	size_t	size;
+	char	*result;
 
+	if (!s1 || !s2)
+		return (NULL);
+	size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	result = (char *)malloc (sizeof(char) * size);
+	if (!result)
+		return (NULL);
 	i = 0;
-	str = "collect left : ";
-	mlx_string_put(data->vars.mlx, data->vars.mlx_win, (data->x - 4) * SCALE, 16, 0xFFFFFF, str);
-	data->collect = ft_collect_number(data);
-	printf("data->collect = %d", data->collect);
+	j = 0;
+	while (s1[i] != '\0')
+	{
+		result[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+		result[i++] = s2[j++];
+	result[i] = '\0';
+	return (result);
 }
