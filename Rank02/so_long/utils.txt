@@ -17,7 +17,7 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --trace-chi
 No argument		OK (!leaks) *
 Bad extension		OK (!leaks) *
 Bad map name		OK (!leaks) *
-Invalid size of map	OK (!leaks) *
+Invalid size of map	OK (!leaks) * - (x < 2 && y < 2)
 Other map		OK (!leaks) *
 Doublon			OK (!leaks) *
 Rectangle map		OK (!leaks) *

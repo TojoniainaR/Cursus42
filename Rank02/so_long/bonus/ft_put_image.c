@@ -20,10 +20,14 @@ void	ft_initiate_data_img(t_data_img *data_img)
 
 void	ft_free_put_img(t_data *data)
 {
-	mlx_destroy_image(data->vars.mlx, data->objects[0]);
-	mlx_destroy_image(data->vars.mlx, data->objects[1]);
-	mlx_destroy_image(data->vars.mlx, data->objects[2]);
-	mlx_destroy_image(data->vars.mlx, data->objects[3]);
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		mlx_destroy_image(data->vars.mlx, data->objects[i]);
+		i++;
+	}
 }
 
 void	ft_image(t_data *data)
@@ -59,6 +63,7 @@ void	ft_put_image(t_data *data)
 {
 	t_data_img	data_img;
 
+	ft_init_map(data->vars.mlx, data->vars.mlx_win, data->x, data->y);
 	data->objects[0] = mlx_xpm_file_to_image(data->vars.mlx, \
 	"./xpm/item_1.xpm", &data_img.width, &data_img.height);
 	data->objects[1] = mlx_xpm_file_to_image(data->vars.mlx, \
@@ -67,7 +72,6 @@ void	ft_put_image(t_data *data)
 	"./xpm/item_C.xpm", &data_img.width, &data_img.height);
 	data->objects[3] = mlx_xpm_file_to_image(data->vars.mlx, \
 	"./xpm/item_E.xpm", &data_img.width, &data_img.height);
-	ft_init_map(data->vars.mlx, data->vars.mlx_win, data->x, data->y);
 	ft_image(data);
 	ft_free_put_img(data);
 }

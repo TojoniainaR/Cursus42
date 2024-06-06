@@ -6,7 +6,7 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 12:49:30 by torandri          #+#    #+#             */
-/*   Updated: 2024/06/05 16:01:44 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:37:19 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_move_player(t_data *data, int new_x, int new_y)
 {
-	int			j;
-	t_data_img	*data_img;
-
 	data->collect = ft_collect_number(data);
 	if (data->map[new_y][new_x] == 'E' && data->collect == 0)
 	{

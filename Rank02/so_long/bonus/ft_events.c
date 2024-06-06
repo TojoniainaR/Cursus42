@@ -6,7 +6,7 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 14:26:31 by torandri          #+#    #+#             */
-/*   Updated: 2024/06/05 17:15:34 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/05 21:57:57 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ void	ft_free_when_quit(t_data *data)
 
 int	ft_key_events(int keycode, t_data *data)
 {
-	int		new_x;
-	int		new_y;
-
-	new_x = data->pos_x;
-	new_y = data->pos_y;
 	data->n_move = ft_itoa(data->move);
 	data->string = ft_strjoin ("move : ", data->n_move);
 	if (keycode == XK_ESC)
@@ -53,8 +48,7 @@ int	ft_key_events(int keycode, t_data *data)
 		move_right_player(data);
 	mlx_string_put(data->vars.mlx, data->vars.mlx_win, \
 	16, 16, 0xFFFFFF, data->string);
-	free(data->string);
-	free(data->n_move);
+	ft_free_char(data);
 	return (1);
 }
 

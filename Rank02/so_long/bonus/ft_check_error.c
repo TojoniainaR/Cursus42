@@ -6,7 +6,7 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:39:43 by tojoniaina        #+#    #+#             */
-/*   Updated: 2024/06/05 16:46:29 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:35:13 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	ft_initiate_data(t_data *data)
 	data->x = 0;
 	data->y = 0;
 	data->move = 1;
-	data->n_move = "";
-	data->string = "";
+	data->file = NULL;
 }
 
 void	ft_initiate_check(t_check_map *check)
@@ -44,7 +43,8 @@ int	ft_loop_map(int x, int y, char **map)
 			if (map[j][i] != '1' && map[j][i] != '0' && map[j][i] != 'P' \
 			&& map[j][i] != 'E' && map[j][i] != 'C')
 			{
-				ft_printf("The map must only contain 1, 0, P, C and E\n");
+				ft_printf(\
+				"Error\nThe map must only contain 1, 0, P, C and E\n");
 				return (1);
 			}
 			i++;
@@ -58,12 +58,13 @@ int	ft_check_error(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
-		perror("Missing argument");
+		ft_printf("Error\nMissing argument\n");
 		return (1);
 	}
-	if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])) || argv[1][0] == '.')
+	if (!ft_strnstr(argv[1], ".ber\0", ft_strlen(argv[1])) || argv[1][0] == '.')
 	{
-		perror("Not the right input, might be <map.ber>");
+		ft_printf("Error\nNot the right input, might be <map.ber>\n");
 		return (1);
 	}
+	return (0);
 }

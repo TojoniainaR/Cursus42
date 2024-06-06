@@ -6,7 +6,7 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:39:43 by tojoniaina        #+#    #+#             */
-/*   Updated: 2024/06/03 11:37:45 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:35:13 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,5 @@ int	ft_check_error(int argc, char *argv[])
 		ft_printf("Error\nNot the right input, might be <map.ber>\n");
 		return (1);
 	}
+	return (0);
 }

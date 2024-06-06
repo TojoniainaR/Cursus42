@@ -6,7 +6,7 @@
 #    By: torandri <torandri@student.42antananari    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 08:30:54 by torandri          #+#    #+#              #
-#    Updated: 2024/06/02 19:41:44 by torandri         ###   ########.fr        #
+#    Updated: 2024/06/05 20:31:48 by torandri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,17 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = so_long
 
-MLX = -Lminilibx-linux -lmlx -lX11 -lXext
+MLX = -L../minilibx-linux -lmlx -lX11 -lXext
 
-LIBFT = -Llibft -lft
+LIBFT = -L../libft -lft
 
-PRINTF = -Lprintf -lftprintf
+PRINTF = -L../printf -lftprintf
 
-GNL = -Lgnl -lgnl
+GNL = -L../gnl -lgnl
 
 RM = rm -f
 
-HEADER = ./minilibx-linux/mlx.h
+HEADER = ../minilibx-linux/mlx.h
 
 LIBC = ar -rcs
 
@@ -36,14 +36,16 @@ OBJS = main.o ft_check_map_error.o ft_scale_map_to_window.o ft_init_map.o ft_che
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	make -C ./libft
-	make -C ./printf
-	make -C ./gnl
-	$(CC) $(FLAGS) -g $(SRCS) $(MLX) $(LIBFT) $(PRINTF) $(GNL) -o $@ $<
-
 .c.o :
-	$(CC) -o $@ -c $^
+	$(CC) -c $(FLAGS) -o $@ $<
+#	$(CC) -o $@ -c $^
+
+$(NAME) : $(OBJ)
+	make -C ../libft
+	make -C ../printf
+	make -C ../gnl
+	$(CC) $(CFLAGS) -g $(SRCS) $(MLX) $(LIBFT) $(PRINTF) $(GNL) -o $@ $<
+
 
 clean :
 	@$(RM) *.o

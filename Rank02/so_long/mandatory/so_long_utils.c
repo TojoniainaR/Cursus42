@@ -6,16 +6,16 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 20:40:34 by torandri          #+#    #+#             */
-/*   Updated: 2024/05/31 11:27:12 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/05 20:33:43 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-size_t	ft_strlen_mod(const char *str)
+int	ft_strlen_mod(char *str)
 {
-	size_t	i;
-	size_t	count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;

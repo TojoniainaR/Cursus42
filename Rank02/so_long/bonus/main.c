@@ -19,7 +19,7 @@ int	main(int argc, char *argv[])
 	ft_initiate_data(&data);
 	if (ft_check_error(argc, argv) == 1)
 		return (1);
-	data.file = ft_strjoin("./map/", argv[1]);
+	data.file = ft_strjoin("../map/", argv[1]);
 	ft_map_size(&data.x, &data.y, data.file);
 	if (ft_check_map_error(data.x, data.y, data.file) == 1)
 		return (free(data.file), 1);

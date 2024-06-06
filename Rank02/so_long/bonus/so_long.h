@@ -6,7 +6,7 @@
 /*   By: torandri <torandri@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:52:17 by torandri          #+#    #+#             */
-/*   Updated: 2024/06/05 16:59:53 by torandri         ###   ########.fr       */
+/*   Updated: 2024/06/05 21:51:41 by torandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # define XK_S 115
 # define XK_W 119
 
-# include "./minilibx-linux/mlx.h"
-# include "./libft/libft.h"
-# include "./printf/ft_printf.h"
-# include "./gnl/get_next_line.h"
-# include "./gnl/get_next_line_bonus.h"
+# include "../minilibx-linux/mlx.h"
+# include "../libft/libft.h"
+# include "../printf/ft_printf.h"
+# include "../gnl/get_next_line.h"
+# include "../gnl/get_next_line_bonus.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -105,10 +105,10 @@ int		ft_check_map_error(int x, int y, char *file);
 int		ft_collect_number(t_data *data);
 int		ft_collect_anim(void *col_anim);
 int		ft_loop_map(int x, int y, char **map);
+int		ft_strlen_mod(char *str);
 char	**ft_tmp_map(int *x, int *y, char *file);
-size_t	ft_strlen_mod(const char *str);
-void	ft_free_char(t_data *data);
 void	ft_free_when_quit(t_data *data);
+void	ft_free_char(t_data *data);
 void	ft_free_map(char **map, int line);
 void	move_up_player(t_data *data);
 void	move_down_player(t_data *data);

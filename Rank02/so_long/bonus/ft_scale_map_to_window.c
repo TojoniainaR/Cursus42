@@ -59,7 +59,8 @@ void	ft_map_size(int *x, int *y, char *file)
 	fd = open(file, O_RDONLY);
 	if (fd <= 2)
 	{
-		perror("Map not found");
+		ft_printf("Error\nMap not found\n");
+		free(file);
 		exit (0);
 	}
 	else if ((take_value_x(*x, fd) == 1) && (take_value_y(*y, fd) == 1))
